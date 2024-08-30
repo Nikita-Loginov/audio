@@ -1,0 +1,232 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+svg{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    path{
+        fill:#fff;
+    }
+}
+
+body{
+    background-color: #fff;
+    font-weight: 400;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player{
+    width: 900px;
+    margin: 0 auto;
+    background-color: #77ab89;
+    border-radius: 20px;
+    padding: 20px;
+    &__inner{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__list{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.audio{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__top{
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+    }
+    &__sound{
+        background-color: transparent;
+        position: relative;
+        &:hover{
+            .audio__sound-input{
+                display: block;
+            }
+        }
+    }
+    &__sound-input{
+        position: absolute;
+        right: 0;
+        width: 100px;
+        cursor: pointer;
+        display: none;
+    }
+    &__sound,
+    &__repeat{
+        cursor: pointer;
+    }
+    &__content{
+        display: flex;
+        gap: 10px;
+    }
+    &__title{
+        font-size: 30px;
+        margin: 0 auto;
+        color:#fff;
+    }
+    &__img{
+        border-radius: 10px;
+        width: 180px;
+        height: 180px;
+    }
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex:1;
+        color:#ffffff;
+        font-size: 16px;
+    }
+    &__info-top{
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        flex:1;
+    }
+    &__info-names{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    &__info-name-song{
+        font-weight: 500;
+        font-size: 20px;
+    }
+}
+
+.actions{
+    margin-bottom: 20px;
+    &__buttons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    button{
+        background-color: transparent;
+    }
+}
+
+.process{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &__line{
+        width: 100%;
+        background-color: gray;
+        height: 4px;
+        border-radius: 20px;
+        cursor: pointer;
+        position: relative;
+    }
+    &__line-progress{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #0df03e;
+        border-radius: inherit;
+        pointer-events: none;
+        &:before{
+            content:"";
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #0df03e;
+            border-radius: 50%;
+            top: 50%;
+            right: -15px;
+            transform: translateY(-50%);
+        }
+    }
+    &__time{
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+    }
+}
+
+.audio-link{
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    justify-content: space-between;
+    align-items: center;
+    color:#fff;
+    font-weight: 600;
+    &__info{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    &__img{
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+    }
+    &__play{
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        background-color: transparent;
+    }
+    &__time,
+    &__genre{
+        margin: 0 auto;
+    }
+}
+
+.play,
+.next,
+.prev,
+.audio__repeat{
+    svg{
+        pointer-events: none;
+    }
+}
+
+.repeat{
+    svg{
+        path{
+            fill:#0df03e;
+        }
+    }
+}
